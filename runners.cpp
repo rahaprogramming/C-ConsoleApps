@@ -109,7 +109,7 @@ void tabular(double data[][8], string names[], double avg[])
 	for (int i = 0; i<5; i++)// display data
 	{
 		int size = 10-names[i].length();// use to line up correctly
-		cout << names[i] << setw(size) << " ";// cant use printf on strings :(
+		cout << names[i] << setw(size) << " ";// cant use printf on array strings :(
 		size = 0;//reset offset
 		for (int j = 0; j<7; j++)
 		{
