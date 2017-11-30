@@ -1,7 +1,7 @@
 /*****************************************************************************************
 @Author Ralph Harris
+CSC 101 for Mr. Rishel's class
 
-also includes code from runners.cpp
 *****************************************************************************************/
 
 #include "stdafx.h"
@@ -19,32 +19,76 @@ void getAverage(double data[][8]);// puts average into average[] array
 void tabular(double data[][8], string names[], double avg[]);// displays everything
 double average[5];// array to store averages
 
-void swap(int& a, int& b);//swaps two ints
-Matrix matrix_sum(const Matrix& a, const Matrix& b);// sum 2 matices
-void Transpose(Matrix& m);// transpose a matrix
-void search(const Matrix& m, int x, int& i, int& j);// search matrix
-bool is_symmetric(const Matrix& m);// is matrix symmetric?
-
-vector<int> v(10);
 typedef vector< vector<int> > Matrix;
+void swap(int& a, int& b);
+Matrix matrix_sum(const Matrix& a, const Matrix& b);
+void Transpose(Matrix& m);
+bool is_symmetric(const Matrix& m);
+void search(const Matrix& m, int x, int& i, int& j);
+bool is_symmetric(const Matrix& m);
+vector<int> v(10);
+
 
 int main()
 {
+	//using vector examples
 	// Create
 	vector<vector<int>> vec(10, vector<int>(10));
 	// Write
 	vec[2][3] = 10;
 	// Read
 	int a = vec[2][3];
-
+	/*
 	for (int j = 0; j < 10; j++) {
 		for (int i = 0; i < 10; i++) {
 			vec[j][i] = i;
 			cout << vec[i][j] << endl;
 		}
 	}
+	*/
+	//**end** using vector examples
+	// string 	
+	vector<vector<string>> myString(2, vector<string>(4));
+	myString[0][0] = "string";
+	int letter1 = myString[0][0].find('s');
+	cout << "located at position: " << letter1 ;
+	cout << "\nlocated at position: " << endl;
+	string::size_type position = myString[0][0].find('t');
+	myString[0][1] = "A freaking string";
+	if (myString[0][0].find(' ', position + 1) != string::npos)
+	{
+		cout << "Contains at least two spaces!" << myString[0][1].find(' ', position + 1) << endl;
+	}
+	else
+	{
+		cout << "Contains less than two spaces!" << endl;
+	}
+	myString[0][2] = "fk";
+	if (myString[0][2].find_first_of("aeiouAEIOU") == string::npos)
+	{
+		cout << "The text entered does not contain vowels! find first of: "
+			<< myString[0][2].find_first_of("k")
+			<< " not of: " << myString[0][2].find_first_not_of("e")
+			<< endl;
+	}
+	string text = "hello world, this is a test";
+	string fragment = text.substr(6, 5);
+	// start at 6, take 5 characters 
+	string textn = "hello world";
+	string subs = textn.substr(3);
+	//assigns the string "lo world" into the variable subs.
+	string textk = "This is a test";
+	textk.erase(5, 5);
+	// the string contains "This test"
+	string textl = "This is a test";
+	textl.replace(5, 2, "was");
+	//the string text contains "This was a test".
+	ostringstream person_info;
 
+	person_info << text;
+	cout << endl << person_info.str()<<endl;
 
+	//from running.cpp
 	/*
 	double milesRan[5][8];// array for miles ran
 	string names[5];//array for names
@@ -53,6 +97,7 @@ int main()
 	getAverage(milesRan);// get averages and put into average[] array
 	tabular(milesRan, names, average);// display everything in tabular format
 	*/
+	cout << "" << endl;
 	system("pause");
 	return 0;
 }
